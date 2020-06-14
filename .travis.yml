@@ -23,14 +23,15 @@ after_success:
   - docker push leonpsm/multi-server
   - docker push leonpsm/multi-worker
 
-#deploy:
-#  provider: elasticbeanstalk
-#  region: "ap-southeast-1"
-#  app: "docker-react"
-#  env: "DockerReact-env"
-#  bucket_name: "elasticbeanstalk-ap-southeast-1-960394229349"
-#  bucket_path: "docker-react"
-#  on:
-#    branch: master
-#  access_key_id: "$AWS_ACCESS_KEY"
-#  secret_access_key: "$AWS_SECRET_KEY"
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: "ap-southeast-1"
+  app: "multi-docker"
+  env: "MultiDocker-env-1"
+  bucket_name: "elasticbeanstalk-ap-southeast-1-960394229349"
+  bucket_path: "docker-multi"
+  on:
+    branch: master
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"
